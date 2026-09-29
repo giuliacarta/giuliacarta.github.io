@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<script>document.documentElement.className='js'</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Giulia Carta | Digital Marketing & Communication</title>
@@ -8,86 +9,132 @@
 <meta property="og:title" content="Giulia Carta | Digital Marketing & Communication">
 <meta property="og:description" content="Trasformo idee complesse in esperienze semplici. Portfolio di progetti di marketing, comunicazione ed eventi.">
 <style>
-:root{--bg:#fff;--text:#1a1a2e;--muted:#5b6070;--accent:#4f46e5;--card:#f4f5fb}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1020;--text:#f1f1f7;--muted:#a3a6b8;--accent:#8b8cff;--card:#1a1b30}}
+:root{--bg:#faf8f5;--text:#1f1d1a;--muted:#6f6a63;--line:#e5e0d8;--accent:#9c5b3c;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#141311;--text:#f2eee8;--muted:#a49e94;--line:#2b2925;--accent:#d19a7a;--card:#1c1a18}}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px}
-header{padding:80px 0 50px}
-h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.15}
-.role{color:var(--accent);font-weight:600;margin-top:10px;font-size:1.2rem}
-.intro{color:var(--muted);margin-top:16px;max-width:640px;font-size:1.1rem}
-.btn{display:inline-block;margin-top:28px;margin-right:10px;padding:12px 24px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-weight:600}
-.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);padding:10px 22px}
-section{padding:40px 0}
-h2{font-size:1.6rem;margin-bottom:24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:var(--card);padding:24px;border-radius:12px}
-.card h3{margin-bottom:6px}
-.date{font-size:.8rem;color:var(--muted);margin-bottom:10px}
-.card p{color:var(--muted);font-size:.95rem;margin-bottom:10px}
-.tags{margin-top:14px;font-size:.8rem;color:var(--accent);font-weight:600}
-.links a{display:inline-block;margin-right:20px;margin-bottom:8px;color:var(--accent);font-weight:600;text-decoration:none}
-footer{padding:40px 0;color:var(--muted);font-size:.9rem}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.01em}
+header{padding:110px 0 70px;border-bottom:1px solid var(--line)}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;color:var(--accent);margin-bottom:22px}
+h1{font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.05}
+.lead{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.15rem,3vw,1.5rem);color:var(--muted);margin-top:22px;max-width:560px}
+.cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 26px;border:1px solid var(--text);color:var(--text);text-decoration:none;font-size:.9rem;letter-spacing:.04em;transition:.3s}
+.btn:hover{background:var(--text);color:var(--bg)}
+.btn.solid{background:var(--text);color:var(--bg)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,5vw,2.4rem);margin-bottom:40px}
+h2 span{display:block;font-family:system-ui,sans-serif;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.card{background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .4s ease,box-shadow .4s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--line),var(--card));position:relative}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.body{padding:26px}
+.date{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.card h3{font-size:1.4rem;line-height:1.25;margin-bottom:12px}
+.card p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.tags{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:6px}
+.about{font-family:Georgia,serif;font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.7;max-width:720px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
+.skills h3{font-size:1.15rem;color:var(--accent);margin-bottom:14px}
+.skills ul{list-style:none}
+.skills li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.links a{display:block;width:fit-content;margin-bottom:10px;color:var(--text);text-decoration:none;font-family:Georgia,serif;font-size:clamp(1.2rem,4vw,1.7rem);border-bottom:1px solid transparent;transition:.3s}
+.links a:hover{color:var(--accent);border-color:var(--accent)}
+footer{padding:40px 0;color:var(--muted);font-size:.85rem}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+header .eyebrow,header h1,header .lead,header .cta{animation:up 1s ease both}
+header h1{animation-delay:.15s}header .lead{animation-delay:.3s}header .cta{animation-delay:.45s}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-<h1>Ciao, sono Giulia Carta</h1>
-<p class="role">Digital Marketing &amp; Communication Specialist con AI</p>
-<p class="intro">Trasformo idee complesse in esperienze semplici.</p>
-<a class="btn" href="mailto:gcarta227@gmail.com">Contattami</a>
-<a class="btn alt" href="https://www.linkedin.com/in/giuliacartaa">LinkedIn</a>
+<p class="eyebrow">Digital Marketing &amp; Communication · AI</p>
+<h1>Giulia Carta</h1>
+<p class="lead">Trasformo idee complesse in esperienze semplici.</p>
+<div class="cta">
+<a class="btn solid" href="mailto:gcarta227@gmail.com">Contattami</a>
+<a class="btn" href="https://www.linkedin.com/in/giuliacartaa">LinkedIn</a>
+</div>
 </header>
 
 <section>
-<h2>Progetti</h2>
+<h2 class="reveal"><span>Selezione</span>Progetti</h2>
 <div class="grid">
 
-<div class="card">
-<h3>Motori Tricolori</h3>
+<article class="card reveal">
+<div class="thumb"><img src="motori-tricolori.jpg" alt="Motori Tricolori" onerror="this.remove()"></div>
+<div class="body">
 <div class="date">20 settembre 2026</div>
+<h3>Motori Tricolori</h3>
 <p>Evento dedicato al collezionismo automobilistico storico, ospitato nella base dell'Aeronautica Militare di Pratica di Mare, tra i velivoli esposti.</p>
 <p>Organizzato dalle community @vintaagecar e @car_lovers_eur, con il patrocinio dell'Aeronautica Militare e la partecipazione di club storici come La Manovella - ASI Giovani e Club Alfisti Romani. Parte dei ricavi è stata donata all'AIRC per la ricerca sul cancro.</p>
 <div class="tags">Eventi · Community · Social media</div>
 </div>
+</article>
 
-<div class="card">
-<h3>BloodMatch – Match di Sangue</h3>
+<article class="card reveal">
+<div class="thumb"><img src="bloodmatch.jpg" alt="BloodMatch" onerror="this.remove()"></div>
+<div class="body">
 <div class="date">Bando #UniPerDonare 2024/2025</div>
-<p>Campagna di sensibilizzazione per studenti universitari sulla donazione di sangue e plasma, nata da un accordo tra Sapienza Università di Roma e Ministero della Salute.</p>
+<h3>BloodMatch – Match di Sangue</h3>
+<p>Campagna per studenti universitari sulla donazione di sangue e plasma, nata da un accordo tra Sapienza Università di Roma e Ministero della Salute.</p>
 <p>Come in un'app di incontri, ogni studente scopre il proprio "match di sangue". Un format giovane che unisce storytelling, podcast, fumetto e piattaforme web.</p>
 <div class="tags">Campagna digitale · Storytelling · Podcast</div>
 </div>
+</article>
 
-<div class="card">
+<article class="card reveal">
+<div class="thumb"><img src="ikea.jpg" alt="Project work IKEA" onerror="this.remove()"></div>
+<div class="body">
+<div class="date">Sapienza · A.A. 2024/2025</div>
 <h3>Project Work: Digital Marketing</h3>
-<div class="date">Sapienza Università di Roma · A.A. 2024/2025</div>
 <p>Analisi della Value Proposition di IKEA nell'ambito del corso di Digital Marketing.</p>
 <div class="tags">Digital marketing · Value proposition</div>
 </div>
+</article>
 
 </div>
 </section>
 
 <section>
-<h2>Su di me</h2>
-<p class="intro">Persona determinata e dinamica, con spirito imprenditoriale e una forte attitudine al lavoro in team. Ho esperienza nel marketing, nella comunicazione digitale, nei social e negli eventi, e uso l'intelligenza artificiale per creare contenuti e progetti più efficaci.</p>
+<h2 class="reveal"><span>Chi sono</span>Su di me</h2>
+<p class="about reveal">Persona determinata e dinamica, con spirito imprenditoriale e una forte attitudine al lavoro in team. Ho esperienza nel marketing, nella comunicazione digitale, nei social e negli eventi, e uso l'intelligenza artificiale per creare contenuti e progetti più efficaci.</p>
 </section>
 
 <section>
-<h2>Contatti</h2>
-<div class="links">
-<a href="https://www.linkedin.com/in/giuliacartaa">LinkedIn</a>
+<h2 class="reveal"><span>Cosa so fare</span>Competenze</h2>
+<div class="skills reveal">
+<div><h3>Marketing</h3><ul><li>Digital marketing</li><li>Value proposition</li><li>Analisi di mercato</li></ul></div>
+<div><h3>Comunicazione</h3><ul><li>Social media</li><li>Storytelling</li><li>Content creation con AI</li></ul></div>
+<div><h3>Eventi e team</h3><ul><li>Organizzazione eventi</li><li>Lavoro in team</li><li>Spirito imprenditoriale</li></ul></div>
+</div>
+</section>
+
+<section style="border:0">
+<h2 class="reveal"><span>Parliamone</span>Contatti</h2>
+<div class="links reveal">
 <a href="mailto:gcarta227@gmail.com">gcarta227@gmail.com</a>
 <a href="tel:+393505319861">+39 350 531 9861</a>
+<a href="https://www.linkedin.com/in/giuliacartaa">LinkedIn</a>
 </div>
 </section>
 
 <footer>© 2026 Giulia Carta</footer>
-
 </div>
+
+<script>
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
 </body>
 </html>

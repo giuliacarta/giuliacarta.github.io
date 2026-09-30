@@ -1,1237 +1,299 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script>document.documentElement.className='js'</script>
-
 <meta charset="UTF-8">
+<script>document.documentElement.className="js"</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Giulia Carta | Digital Marketing & Communication</title>
-
-<meta name="description" content="Giulia Carta, Digital Marketing & Communication specialist con AI. Trasformo idee complesse in esperienze semplici.">
-
+<meta name="description" content="Giulia Carta, Digital marketing & Communication specialist con AI. Brand, social, eventi ed editoria: trasformo idee complesse in esperienze semplici.">
 <meta property="og:title" content="Giulia Carta | Digital Marketing & Communication">
-<meta property="og:description" content="Trasformo idee complesse in esperienze semplici. Portfolio di progetti di marketing, comunicazione ed eventi.">
-
+<meta property="og:description" content="Brand, social, eventi ed editoria. Trasformo idee complesse in esperienze semplici.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
-/* =========================
-   PALETTE E IMPOSTAZIONI
-========================= */
-
-:root{
-  --bg:#faf8f5;
-  --text:#1f1d1a;
-  --muted:#6f6a63;
-  --line:#e5e0d8;
-  --accent:#9c5b3c;
-  --accent-light:#c99478;
-  --card:#fff;
-  --soft:#f1ece6;
-}
-
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#141311;
-    --text:#f2eee8;
-    --muted:#a49e94;
-    --line:#2b2925;
-    --accent:#d19a7a;
-    --accent-light:#a8755c;
-    --card:#1c1a18;
-    --soft:#25221f;
-  }
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
-}
-
-.wrap{
-  max-width:960px;
-  margin:0 auto;
-  padding:0 24px;
-}
-
-h1,h2,h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:400;
-  letter-spacing:-.01em;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-  padding:110px 0 70px;
-  border-bottom:1px solid var(--line);
-  position:relative;
-}
-
-header:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:var(--accent);
-  opacity:.045;
-  right:-100px;
-  top:60px;
-  animation:float 7s ease-in-out infinite;
-}
-
-.eyebrow{
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:.75rem;
-  color:var(--accent);
-  margin-bottom:22px;
-}
-
-h1{
-  font-size:clamp(2.6rem,8vw,4.6rem);
-  line-height:1.05;
-}
-
-.lead{
-  font-family:Georgia,serif;
-  font-style:italic;
-  font-size:clamp(1.15rem,3vw,1.5rem);
-  color:var(--muted);
-  margin-top:22px;
-  max-width:560px;
-}
-
-.cta{
-  margin-top:36px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:12px 26px;
-  border:1px solid var(--text);
-  color:var(--text);
-  text-decoration:none;
-  font-size:.9rem;
-  letter-spacing:.04em;
-  transition:.3s;
-}
-
-.btn:hover{
-  background:var(--text);
-  color:var(--bg);
-  transform:translateY(-2px);
-}
-
-.btn.solid{
-  background:var(--text);
-  color:var(--bg);
-}
-
-.btn.solid:hover{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff;
-}
-
-
-/* =========================
-   SEZIONI
-========================= */
-
-section{
-  padding:80px 0;
-  border-bottom:1px solid var(--line);
-}
-
-h2{
-  font-size:clamp(1.8rem,5vw,2.4rem);
-  margin-bottom:40px;
-}
-
-h2 span{
-  display:block;
-  font-family:system-ui,sans-serif;
-  font-size:.75rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:10px;
-}
-
-
-/* =========================
-   PROJECT GRID
-========================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  overflow:hidden;
-  transition:
-    transform .45s cubic-bezier(.2,.8,.2,1),
-    box-shadow .45s ease,
-    border-color .45s ease;
-  cursor:default;
-  position:relative;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 22px 50px rgba(0,0,0,.10);
-  border-color:var(--accent-light);
-}
-
-
-/* =========================
-   PROJECT VISUAL
-========================= */
-
-.thumb{
-  aspect-ratio:16/10;
-  background:
-    radial-gradient(circle at 80% 20%,rgba(156,91,60,.12),transparent 30%),
-    linear-gradient(135deg,var(--soft),var(--card));
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* linea decorativa */
-
-.thumb:before{
-  content:"";
-  position:absolute;
-  width:180%;
-  height:1px;
-  background:var(--line);
-  transform:rotate(-15deg);
-  opacity:.8;
-}
-
-.thumb:after{
-  content:"";
-  position:absolute;
-  width:140px;
-  height:140px;
-  border:1px solid var(--accent);
-  border-radius:50%;
-  opacity:.12;
-  right:-50px;
-  bottom:-70px;
-  transition:.6s ease;
-}
-
-.card:hover .thumb:after{
-  transform:scale(1.5);
-  opacity:.2;
-}
-
-
-/* =========================
-   MOTORI TRICOLORI
-========================= */
-
-.visual-motori{
-  width:100%;
-  height:100%;
-  position:relative;
-}
-
-.car{
-  position:absolute;
-  width:145px;
-  height:48px;
-  background:var(--accent);
-  border-radius:65px 55px 18px 18px;
-  left:12%;
-  bottom:25%;
-  transform:skewX(-8deg);
-  transition:.5s ease;
-}
-
-.car:before{
-  content:"";
-  position:absolute;
-  width:75px;
-  height:32px;
-  background:var(--soft);
-  border:2px solid var(--accent);
-  left:35px;
-  top:-25px;
-  border-radius:45px 45px 5px 5px;
-}
-
-.car:after{
-  content:"";
-  position:absolute;
-  width:20px;
-  height:20px;
-  background:var(--text);
-  border-radius:50%;
-  left:18px;
-  bottom:-10px;
-  box-shadow:100px 0 0 var(--text);
-}
-
-.card:hover .car{
-  transform:translateX(18px) skewX(-8deg);
-}
-
-.plane{
-  position:absolute;
-  right:12%;
-  top:22%;
-  font-size:4.2rem;
-  transform:rotate(-8deg);
-  filter:grayscale(1);
-  opacity:.8;
-  transition:.5s ease;
-}
-
-.card:hover .plane{
-  transform:translate(10px,-8px) rotate(-8deg);
-}
-
-.tricolore{
-  position:absolute;
-  bottom:12%;
-  right:10%;
-  display:flex;
-  gap:3px;
-  opacity:.65;
-}
-
-.tricolore span{
-  display:block;
-  width:18px;
-  height:5px;
-}
-
-.tricolore span:nth-child(1){background:#4d8c58}
-.tricolore span:nth-child(2){background:#f1eee7}
-.tricolore span:nth-child(3){background:#a44d43}
-
-
-/* =========================
-   BLOODMATCH
-========================= */
-
-.visual-blood{
-  width:100%;
-  height:100%;
-  position:relative;
-}
-
-.phone{
-  position:absolute;
-  width:82px;
-  height:145px;
-  border:4px solid var(--text);
-  border-radius:14px;
-  left:18%;
-  top:17%;
-  background:var(--card);
-  box-shadow:10px 12px 0 rgba(156,91,60,.12);
-  transition:.5s ease;
-}
-
-.phone:before{
-  content:"";
-  position:absolute;
-  width:38px;
-  height:5px;
-  border-radius:5px;
-  background:var(--line);
-  top:9px;
-  left:18px;
-}
-
-.phone:after{
-  content:"MATCH";
-  position:absolute;
-  font-family:system-ui,sans-serif;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.1em;
-  color:var(--accent);
-  top:50px;
-  left:19px;
-}
-
-.card:hover .phone{
-  transform:translateY(-8px) rotate(-3deg);
-}
-
-.blood-drop{
-  position:absolute;
-  right:20%;
-  top:24%;
-  width:72px;
-  height:72px;
-  background:var(--accent);
-  border-radius:55% 45% 60% 40%;
-  transform:rotate(45deg);
-  transition:.5s ease;
-}
-
-.blood-drop:after{
-  content:"";
-  position:absolute;
-  width:26px;
-  height:26px;
-  border:2px solid rgba(255,255,255,.5);
-  border-radius:50%;
-  left:18px;
-  top:18px;
-}
-
-.card:hover .blood-drop{
-  transform:rotate(45deg) scale(1.1);
-}
-
-.match-line{
-  position:absolute;
-  bottom:22%;
-  left:17%;
-  width:66%;
-  height:1px;
-  background:var(--accent);
-}
-
-.match-line:before,
-.match-line:after{
-  content:"";
-  position:absolute;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--accent);
-  top:-4px;
-}
-
-.match-line:before{left:0}
-.match-line:after{right:0}
-
-
-/* =========================
-   IKEA / DIGITAL MARKETING
-========================= */
-
-.visual-ikea{
-  width:100%;
-  height:100%;
-  position:relative;
-  overflow:hidden;
-}
-
-.keyword{
-  position:absolute;
-  font-family:Georgia,serif;
-  color:var(--accent);
-  transition:.5s ease;
-}
-
-.keyword.one{
-  left:12%;
-  top:20%;
-  font-size:1.3rem;
-}
-
-.keyword.two{
-  right:10%;
-  top:30%;
-  font-size:1rem;
-}
-
-.keyword.three{
-  left:24%;
-  bottom:19%;
-  font-size:.9rem;
-}
-
-.keyword.four{
-  right:20%;
-  bottom:16%;
-  font-size:1.2rem;
-}
-
-.keyword.five{
-  left:43%;
-  top:46%;
-  font-size:1rem;
-}
-
-.analytics{
-  position:absolute;
-  width:130px;
-  height:75px;
-  border-left:1px solid var(--accent);
-  border-bottom:1px solid var(--accent);
-  left:37%;
-  top:25%;
-  opacity:.7;
-}
-
-.analytics span{
-  position:absolute;
-  bottom:0;
-  width:10px;
-  background:var(--accent);
-  opacity:.55;
-  transition:.5s ease;
-}
-
-.analytics span:nth-child(1){
-  left:15px;
-  height:22px;
-}
-
-.analytics span:nth-child(2){
-  left:38px;
-  height:40px;
-}
-
-.analytics span:nth-child(3){
-  left:61px;
-  height:31px;
-}
-
-.analytics span:nth-child(4){
-  left:84px;
-  height:58px;
-}
-
-.card:hover .analytics span{
-  transform:scaleY(1.12);
-  transform-origin:bottom;
-}
-
-.card:hover .keyword{
-  transform:translateY(-4px);
-}
-
-
-/* =========================
-   PROJECT TEXT
-========================= */
-
-.body{
-  padding:26px;
-}
-
-.date{
-  font-size:.75rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:8px;
-}
-
-.card h3{
-  font-size:1.4rem;
-  line-height:1.25;
-  margin-bottom:12px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:.95rem;
-  margin-bottom:12px;
-}
-
-.tags{
-  font-size:.8rem;
-  color:var(--muted);
-  border-top:1px solid var(--line);
-  padding-top:14px;
-  margin-top:6px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about{
-  font-family:Georgia,serif;
-  font-size:clamp(1.15rem,3vw,1.45rem);
-  line-height:1.7;
-  max-width:720px;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:36px;
-}
-
-.skills h3{
-  font-size:1.15rem;
-  color:var(--accent);
-  margin-bottom:14px;
-}
-
-.skills ul{
-  list-style:none;
-}
-
-.skills li{
-  padding:9px 0;
-  border-bottom:1px solid var(--line);
-  font-size:.95rem;
-  transition:.25s ease;
-}
-
-.skills li:hover{
-  padding-left:8px;
-  color:var(--accent);
-}
-
-
-/* =========================
-   CONTACTS
-========================= */
-
-.links a{
-  display:block;
-  width:fit-content;
-  margin-bottom:10px;
-  color:var(--text);
-  text-decoration:none;
-  font-family:Georgia,serif;
-  font-size:clamp(1.2rem,4vw,1.7rem);
-  border-bottom:1px solid transparent;
-  transition:.3s;
-}
-
-.links a:hover{
-  color:var(--accent);
-  border-color:var(--accent);
-  transform:translateX(6px);
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  padding:40px 0;
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-
-/* =========================
-   ANIMAZIONI
-========================= */
-
-@keyframes up{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-@keyframes float{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-18px);
-  }
-}
-
-header .eyebrow,
-header h1,
-header .lead,
-header .cta{
-  animation:up 1s ease both;
-}
-
-header h1{
-  animation-delay:.15s;
-}
-
-header .lead{
-  animation-delay:.3s;
-}
-
-header .cta{
-  animation-delay:.45s;
-}
-
-.js .reveal{
-  opacity:0;
-  transform:translateY(28px);
-  transition:opacity .9s ease,transform .9s ease;
-}
-
-.js .reveal.in{
-  opacity:1;
-  transform:none;
-}
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    animation:none!important;
-    transition:none!important;
-  }
-
-  .js .reveal{
-    opacity:1;
-    transform:none;
-  }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-  header{
-    padding:80px 0 60px;
-  }
-
-  section{
-    padding:60px 0;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .card:hover{
-    transform:translateY(-4px);
-  }
-
-  .phone{
-    left:20%;
-  }
-
-  .blood-drop{
-    right:18%;
-  }
-}
-
+:root{--ink:#faf8f5;--ink2:#ffffff;--soft:#f1ece4;--line:#e5e0d8;--paper:#1f1d1a;--mute:#6f6a63;--rosso:#9c5b3c}
+@media(prefers-color-scheme:dark){:root{--ink:#141311;--ink2:#1c1a18;--soft:#1c1a18;--line:#2b2925;--paper:#f2eee8;--mute:#a49e94;--rosso:#d19a7a}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--paper);line-height:1.65;font-size:1.05rem;-webkit-font-smoothing:antialiased}
+h1,h2,h3,summary{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rosso);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:70px 24px 60px}
+.hero h1{font-weight:800;font-size:clamp(3.4rem,15vw,9.5rem);line-height:.92;letter-spacing:-.035em}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}
+.ln span{display:block;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.ln:nth-child(2) span{animation-delay:.14s;color:var(--rosso)}
+@keyframes rise{to{transform:none}}
+.role{font-size:clamp(1.05rem,2.6vw,1.4rem);margin-top:34px;max-width:620px;font-weight:500}
+.lead{color:var(--mute);margin-top:12px;max-width:520px}
+.cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 28px;border:2px solid var(--paper);border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--paper);color:var(--ink)}
+.btn.fill{background:var(--rosso);border-color:var(--rosso);color:var(--ink)}
+.btn.fill:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.band{background:var(--rosso);color:var(--ink);overflow:hidden;white-space:nowrap;padding:14px 0;transform:rotate(-1.2deg);margin:0 -10px}
+.track{display:inline-block;animation:scroll 32s linear infinite;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.2rem,3vw,1.7rem)}
+.track span{margin:0 1.2rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+section{padding:110px 0 20px}
+h2{font-weight:800;font-size:clamp(2.2rem,7vw,4.2rem);line-height:1;letter-spacing:-.03em;margin-bottom:14px}
+.sub{color:var(--mute);max-width:560px;margin-bottom:48px}
+.proj{display:grid;grid-template-columns:1fr 1.25fr;gap:32px;padding:38px 0;border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj h3{font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.08;letter-spacing:-.02em}
+.when{color:var(--rosso);font-weight:600;font-size:.9rem;margin-bottom:10px}
+.thumb{margin-top:20px;aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,var(--ink2),var(--line));overflow:hidden;position:relative}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proj p{color:var(--mute);margin-bottom:14px}
+.proj p strong{color:var(--paper);font-weight:600}
+.kw{color:var(--paper);font-weight:500;font-size:.92rem}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:26px 0;font-weight:800;font-size:clamp(1.3rem,3.6vw,2rem);letter-spacing:-.02em;line-height:1.15}
+summary::-webkit-details-marker{display:none}
+summary small{margin-left:auto;font-family:"Instrument Sans",sans-serif;font-weight:500;font-size:.85rem;color:var(--mute);letter-spacing:0;text-align:right;max-width:220px}
+summary::after{content:"+";font-size:2rem;font-weight:500;color:var(--rosso);transition:transform .3s;flex:none;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+summary:hover{color:var(--rosso)}
+.more{padding:0 0 30px;max-width:720px;color:var(--mute);animation:fade .5s ease}
+.more p{margin-bottom:12px}
+.more .kw{color:var(--paper)}
+@keyframes fade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.spot{background:var(--soft);color:var(--paper);margin-top:110px;padding:100px 0 90px;border-radius:36px 36px 0 0}
+.spot h2{margin-bottom:10px}
+.spot .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:clamp(1.2rem,3vw,1.7rem);color:var(--rosso);margin-bottom:26px}
+.spot .txt{max-width:640px;margin-bottom:54px;color:var(--mute)}
+.ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.ev div{border-left:4px solid var(--rosso);padding-left:18px}
+.ev h3{font-size:1.35rem;line-height:1.15;margin-bottom:8px}
+.ev p{color:var(--mute);font-size:.95rem}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-top:10px}
+.sk h3{font-size:1.3rem;color:var(--rosso);margin-bottom:12px}
+.sk li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);color:var(--mute)}
+.contact{padding-bottom:110px}
+.contact a.mail{display:block;width:fit-content;max-width:100%;overflow-wrap:anywhere;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(1.5rem,6vw,3.4rem);letter-spacing:-.03em;text-decoration:none;border-bottom:4px solid var(--rosso);margin-bottom:28px;transition:color .25s}
+.contact a.mail:hover{color:var(--rosso)}
+.row{display:flex;gap:26px;flex-wrap:wrap;font-weight:600}
+.row a{text-decoration:none;color:var(--mute)}
+.row a:hover{color:var(--paper)}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.85rem}
+@media(max-width:720px){.proj{grid-template-columns:1fr;gap:14px}summary small{display:none}section{padding-top:80px}.spot{margin-top:80px;border-radius:26px 26px 0 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ln span{transform:none}}
+
+html,body{overflow-x:hidden}
+.ic{width:1.6em;height:1.6em;stroke:var(--rosso);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+summary .ic{width:1.15em;height:1.15em;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+summary:hover .ic{animation:wig .7s}
+details[open] summary .ic{transform:scale(1.2)}
+.ev .ic{display:block;width:2.2rem;height:2.2rem;margin-bottom:12px}
+@keyframes wig{20%{transform:rotate(-16deg)}45%{transform:rotate(12deg)}70%{transform:rotate(-6deg)}100%{transform:none}}
+.bar{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--rosso);transform:scaleX(0);transform-origin:left;z-index:50}
+.hero{position:relative}
+.blob{position:absolute;z-index:-1;border-radius:50%;background:radial-gradient(circle,var(--rosso) 0,transparent 68%);opacity:.18;filter:blur(20px);pointer-events:none}
+.b1{width:46vw;height:46vw;max-width:560px;max-height:560px;right:-8%;top:6%;animation:float 14s ease-in-out infinite}
+.b2{width:30vw;height:30vw;max-width:380px;max-height:380px;left:-6%;bottom:4%;animation:float 18s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(-40px,36px) scale(1.12)}}
+.role,.lead,.cta{opacity:0;animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
+.role{animation-delay:.55s}.lead{animation-delay:.7s}.cta{animation-delay:.85s}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.btn.fill{animation:pulse 2.6s ease-out 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(156,91,60,.45)}70%,100%{box-shadow:0 0 0 18px rgba(156,91,60,0)}}
+.cue{margin-top:46px;width:2px;height:56px;background:linear-gradient(var(--rosso),transparent);transform-origin:top;animation:cue 2s ease-in-out 1.6s infinite;opacity:0}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.band:hover .track{animation-play-state:paused}
+h2{position:relative;padding-bottom:.28em}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:84px;height:5px;background:var(--rosso);border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.8,.2,1) .35s}
+h2.in::after{transform:scaleX(1)}
+.thumb{background-size:220% 220%;animation:shift 7s ease infinite}
+@keyframes shift{50%{background-position:100% 100%}}
+.thumb img{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.proj:hover .thumb img{transform:scale(1.07)}
+.proj h3{transition:color .3s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.proj:hover h3{color:var(--rosso);transform:translateX(10px)}
+.ev>div{transition:transform .4s,border-color .4s}
+.ev>div:hover{transform:translateY(-6px)}
+.js .rv{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .proj>div:first-child.rv{transform:translateX(-50px)}
+.js .proj>div:last-child.rv{transform:translateX(50px)}
+.js .proj>div.rv.in{transform:none}
+.js details.rv{transform:translateX(-30px)}
+.js details.rv.in{transform:none}
+.js .ev .ic{opacity:0;transform:scale(.3) rotate(-25deg);transition:opacity .5s .3s,transform .9s cubic-bezier(.3,1.7,.5,1) .3s}
+.js .ev>div.in .ic{opacity:1;transform:none}
+.js .sk li{opacity:0;transform:translateX(-18px);transition:opacity .6s,transform .6s}
+.js .sk>div.in li{opacity:1;transform:none}
+.sk>div.in li:nth-child(1){transition-delay:.25s}.sk>div.in li:nth-child(2){transition-delay:.4s}.sk>div.in li:nth-child(3){transition-delay:.55s}
+.contact a.mail{background:linear-gradient(var(--rosso),var(--rosso)) 0 100%/0 4px no-repeat;border-bottom-color:transparent;transition:background-size .5s,color .3s}
+.contact a.mail:hover{background-size:100% 4px}
+@media(prefers-reduced-motion:reduce){.js .rv,.js .sk li,.js .ev .ic,.role,.lead,.cta,.cue{opacity:1!important;transform:none!important}.blob,.bar{display:none}h2::after{transform:scaleX(1)}}
 </style>
 </head>
-
-
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+<symbol id="i-pizza" viewBox="0 0 24 24"><path d="M3 6c6-3 12-3 18 0L12 21z"/><circle cx="10" cy="9.5" r="1"/><circle cx="14.5" cy="10.5" r="1"/><circle cx="12" cy="14" r="1"/></symbol>
+<symbol id="i-brand" viewBox="0 0 24 24"><path d="M12 3l6 8-6 10-6-10z"/><path d="M12 3v10"/><circle cx="12" cy="13" r="1.3"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16l4-5 3 3 5-7"/></symbol>
+<symbol id="i-news" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 16h5"/></symbol>
+<symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10.5 9.5v5l4-2.5z"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M12 3v3"/></symbol>
+<symbol id="i-drink" viewBox="0 0 24 24"><path d="M4 5h16l-8 9z"/><path d="M12 14v6M8 20h8"/></symbol>
+<symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8 4L3 7l2 4 3-1v10h8V10l3 1 2-4-5-3c-1 2-3 2-4 2s-3 0-4-2z"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 5h12l-2 4 2 4H5"/></symbol>
+</defs></svg>
+<div class="bar" id="bar"></div>
 
-<div class="wrap">
-
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-<p class="eyebrow">
-Digital Marketing &amp; Communication · AI
-</p>
-
-<h1>
-Giulia Carta
-</h1>
-
-<p class="lead">
-Trasformo idee complesse in esperienze semplici.
-</p>
-
+<header class="hero wrap">
+<div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+<h1><span class="ln"><span>Giulia</span></span><span class="ln"><span>Carta</span></span></h1>
+<p class="role">Digital marketing &amp; communication specialist con AI</p>
+<p class="lead">Trasformo idee complesse in esperienze semplici: brand, social, eventi ed editoria.</p>
 <div class="cta">
-
-<a class="btn solid" href="mailto:gcarta227@gmail.com">
-Contattami
-</a>
-
-<a class="btn" href="https://www.linkedin.com/in/giuliacartaa" target="_blank">
-LinkedIn
-</a>
-
+<a class="btn fill" href="mailto:gcarta227@gmail.com">Contattami</a>
+<a class="btn" href="#iniziative">Guarda cosa ho fatto</a>
 </div>
-
+<div class="cue" aria-hidden="true"></div>
 </header>
 
+<div class="band" aria-hidden="true"><div class="track"><span>Brand identity</span><span>Social media</span><span>Eventi</span><span>Video e montaggio</span><span>Editoria digitale</span><span>Content con AI</span><span>Brand identity</span><span>Social media</span><span>Eventi</span><span>Video e montaggio</span><span>Editoria digitale</span><span>Content con AI</span></div></div>
 
+<main>
+<section class="wrap" id="progetti">
+<h2>Progetti in evidenza</h2>
+<p class="sub">Eventi, campagne e analisi di mercato.</p>
 
-<!-- =========================
-     PROGETTI
-========================= -->
-
-<section>
-
-<h2 class="reveal">
-<span>Selezione</span>
-Progetti
-</h2>
-
-
-<div class="grid">
-
-
-<!-- =========================
-     PROGETTO 1
-========================= -->
-
-<article class="card reveal">
-
-<div class="thumb">
-
-<div class="visual-motori">
-
-<div class="plane">✈</div>
-
-<div class="car"></div>
-
-<div class="tricolore">
-<span></span>
-<span></span>
-<span></span>
+<article class="proj">
+<div>
+<div class="when">20 settembre 2026</div>
+<h3>Motori Tricolori</h3>
+<div class="thumb"><img src="motori-tricolori.jpg" alt="Motori Tricolori" onerror="this.remove()"></div>
 </div>
-
+<div>
+<p>Un evento di auto d'epoca <strong>dentro la base dell'Aeronautica Militare di Pratica di Mare</strong>, tra i velivoli esposti. Accoglienza, speech del comandante, prova di regolarità cronometrata, pranzo in hangar e chiusura al Club Alfisti Romani.</p>
+<p>Organizzato dalle community @vintaagecar e @car_lovers_eur, con il patrocinio dell'Aeronautica Militare e club storici come La Manovella - ASI Giovani, Club Alfisti Romani, Club Bracciano e Club Laurentum Roma. <strong>Parte dei ricavi è stata donata all'AIRC.</strong></p>
+<p class="kw">Eventi, community, social media, partnership</p>
 </div>
-
-</div>
-
-
-<div class="body">
-
-<div class="date">
-20 settembre 2026
-</div>
-
-<h3>
-Motori Tricolori
-</h3>
-
-<p>
-Evento dedicato al collezionismo automobilistico storico, ospitato nella base dell'Aeronautica Militare di Pratica di Mare, tra i velivoli esposti.
-</p>
-
-<p>
-Organizzato dalle community @vintaagecar e @car_lovers_eur, con il patrocinio dell'Aeronautica Militare e la partecipazione di club storici come La Manovella - ASI Giovani e Club Alfisti Romani. Parte dei ricavi è stata donata all'AIRC per la ricerca sul cancro.
-</p>
-
-<div class="tags">
-Eventi · Community · Social media
-</div>
-
-</div>
-
 </article>
 
-
-
-<!-- =========================
-     PROGETTO 2
-========================= -->
-
-<article class="card reveal">
-
-<div class="thumb">
-
-<div class="visual-blood">
-
-<div class="phone"></div>
-
-<div class="blood-drop"></div>
-
-<div class="match-line"></div>
-
+<article class="proj">
+<div>
+<div class="when">Bando #UniPerDonare 2024/2025</div>
+<h3>BloodMatch, match di sangue</h3>
+<div class="thumb"><img src="bloodmatch.jpg" alt="BloodMatch" onerror="this.remove()"></div>
 </div>
-
+<div>
+<p>Una campagna per gli studenti universitari che porta la <strong>donazione di sangue e plasma</strong> nel linguaggio del dating: come in un'app di incontri, ognuno scopre il proprio "match di sangue", la persona compatibile che un giorno potrebbe aver bisogno del suo aiuto.</p>
+<p>Nata dall'accordo tra Sapienza Università di Roma e Ministero della Salute, unisce storytelling, podcast, fumetto e piattaforme web.</p>
+<p class="kw">Campagna digitale, storytelling, podcast, fumetto</p>
 </div>
-
-
-<div class="body">
-
-<div class="date">
-Bando #UniPerDonare 2024/2025
-</div>
-
-<h3>
-BloodMatch – Match di Sangue
-</h3>
-
-<p>
-Campagna per studenti universitari sulla donazione di sangue e plasma, nata da un accordo tra Sapienza Università di Roma e Ministero della Salute.
-</p>
-
-<p>
-Come in un'app di incontri, ogni studente scopre il proprio "match di sangue". Un format giovane che unisce storytelling, podcast, fumetto e piattaforme web.
-</p>
-
-<div class="tags">
-Campagna digitale · Storytelling · Podcast
-</div>
-
-</div>
-
 </article>
 
-
-
-<!-- =========================
-     PROGETTO 3
-========================= -->
-
-<article class="card reveal">
-
-<div class="thumb">
-
-<div class="visual-ikea">
-
-<div class="keyword one">
-Data
+<article class="proj">
+<div>
+<div class="when">Sapienza, A.A. 2024/2025</div>
+<h3>Project work: Digital Marketing</h3>
+<div class="thumb"><img src="ikea.jpg" alt="Project work IKEA" onerror="this.remove()"></div>
 </div>
-
-<div class="keyword two">
-Strategy
+<div>
+<p>Analisi della value proposition di <strong>IKEA</strong> nell'ambito del corso di Digital Marketing.</p>
+<p class="kw">Digital marketing, value proposition, analisi</p>
 </div>
-
-<div class="keyword three">
-Audience
-</div>
-
-<div class="keyword four">
-Value
-</div>
-
-<div class="keyword five">
-Digital
-</div>
-
-
-<div class="analytics">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="body">
-
-<div class="date">
-Sapienza · A.A. 2024/2025
-</div>
-
-<h3>
-Project Work: Digital Marketing
-</h3>
-
-<p>
-Analisi della Value Proposition di IKEA nell'ambito del corso di Digital Marketing.
-</p>
-
-<p>
-Un project work basato sull'analisi dei dati e dei principali elementi della strategia digitale: posizionamento, audience, proposta di valore e comportamento degli utenti.
-</p>
-
-<div class="tags">
-Digital marketing · Data analysis · Value proposition
-</div>
-
-</div>
-
 </article>
-
-
-</div>
-
 </section>
 
+<section class="wrap" id="iniziative">
+<h2>Iniziative e collaborazioni</h2>
+<p class="sub">Brand, professionisti e testate con cui ho lavorato. Tocca una riga per aprirla.</p>
 
+<details>
+<summary><svg class="ic"><use href="#i-camera"/></svg>Stefania di Carlantonio SDC <small>Foto, editing, e-commerce</small></summary>
+<div class="more"><p>Ho seguito il lavoro del brand fotografando i capi, editando gli scatti e migliorando il sito e-commerce, così che il prodotto fosse chiaro e desiderabile anche online.</p><p class="kw">Fotografia, editing, e-commerce</p></div>
+</details>
 
-<!-- =========================
-     CHI SONO
-========================= -->
+<details>
+<summary><svg class="ic"><use href="#i-pizza"/></svg>Solo Pizza, Roma <small>Comunicazione completa</small></summary>
+<div class="more"><p>Ho gestito l'intera comunicazione della pizzeria di Viale Ippocrate: contenuti, editing, sito, menù e locandine. Il risultato è stato più clientela e contenuti diventati virali sui social.</p><p class="kw">Social media, sito web, grafica, menù</p></div>
+</details>
 
-<section>
+<details>
+<summary><svg class="ic"><use href="#i-brand"/></svg>Esperta in counseling <small>Brand identity</small></summary>
+<div class="more"><p>Ho creato l'identità di brand di una professionista del counseling, partendo dalle sue richieste, dal suo stile e dal suo tone of voice: grafiche, logo e materiali coerenti tra loro.</p><p class="kw">Brand identity, logo, tone of voice, grafica</p></div>
+</details>
 
-<h2 class="reveal">
+<details>
+<summary><svg class="ic"><use href="#i-chart"/></svg>Esperto di biohacking <small>Percorso social</small></summary>
+<div class="more"><p>Ho seguito il suo percorso social: scouting degli utenti target, produzione ed editing dei contenuti, analisi degli insights dei canali per capire cosa funzionava e cosa migliorare.</p><p class="kw">Social strategy, scouting, contenuti, insights</p></div>
+</details>
 
-<span>Chi sono</span>
+<details>
+<summary><svg class="ic"><use href="#i-news"/></svg>Collezionismoauto.it e The Car Collecting <small>Co-fondatrice</small></summary>
+<div class="more"><p>Ho co-fondato con Giuseppe Piro due magazine digitali: <a href="https://collezionismoauto.it">collezionismoauto.it</a> e la versione internazionale <a href="https://thecarcollecting.com">thecarcollecting.com</a>. Scrivo articoli, reportage e comunicati stampa su eventi e iniziative del mondo del collezionismo.</p><p class="kw">Editoria digitale, reportage, comunicati stampa</p></div>
+</details>
 
-Su di me
+<details>
+<summary><svg class="ic"><use href="#i-video"/></svg>HD Motori <small>Test drive in video</small></summary>
+<div class="more"><p>Ho sperimentato il format del test drive: dalla spiegazione dell'auto alle riprese, fino a editing e montaggio dei video pensati per YouTube e Instagram.</p><p class="kw">Video, montaggio, YouTube, Instagram</p></div>
+</details>
 
-</h2>
-
-<p class="about reveal">
-
-Persona determinata e dinamica, con spirito imprenditoriale e una forte attitudine al lavoro in team. Ho esperienza nel marketing, nella comunicazione digitale, nei social e negli eventi, e uso l'intelligenza artificiale per creare contenuti e progetti più efficaci.
-
-</p>
-
+<details>
+<summary><svg class="ic"><use href="#i-pen"/></svg>Articoli per altre testate <small>Scrittura</small></summary>
+<div class="more"><p>Ho scritto articoli per Voci di città, Blog Motori e Auto d'Epoca.</p><p class="kw">Scrittura, giornalismo, motori</p></div>
+</details>
 </section>
 
-
-
-<!-- =========================
-     COMPETENZE
-========================= -->
-
-<section>
-
-<h2 class="reveal">
-
-<span>Cosa so fare</span>
-
-Competenze
-
-</h2>
-
-
-<div class="skills reveal">
-
-
-<div>
-
-<h3>
-Marketing
-</h3>
-
-<ul>
-
-<li>
-Digital marketing
-</li>
-
-<li>
-Value proposition
-</li>
-
-<li>
-Analisi di mercato
-</li>
-
-</ul>
-
+<div class="spot" id="vintaagecar">
+<div class="wrap">
+<h2>@vintaagecar</h2>
+<p class="big">The best way to share vintage cars</p>
+<p class="txt">L'ho creato come progetto editoriale per condividere gli scatti di auto d'epoca degli utenti. Da lì sono nate collaborazioni, partnership ed eventi dal vivo, con un format giovane e accessibile.</p>
+<div class="ev">
+<div><svg class="ic"><use href="#i-coffee"/></svg><h3>Meet &amp; Breakfast</h3><p>Il raduno di auto d'epoca all'Eur, a Roma, ogni quarta domenica del mese, con la colazione nei bar del quartiere come Palombini e L'angolo. Nato con Car Lovers Eur.</p></div>
+<div><svg class="ic"><use href="#i-drink"/></svg><h3>Ruote da bere</h3><p>Il format estivo: aperitivo al tramonto, auto d'epoca, giovani e dj set, con locali come Barbecue Paradise Roma.</p></div>
+<div><svg class="ic"><use href="#i-shirt"/></svg><h3>Targa T-shirt</h3><p>Collaborazione per raccontare e promuovere i suoi capi personalizzati.</p></div>
+<div><svg class="ic"><use href="#i-flag"/></svg><h3>Millennium Expo</h3><p>Il nostro stand alla fiera dell'auto d'epoca di Roma, per presentare progetti ed eventi.</p></div>
+</div>
+</div>
 </div>
 
-
-
-<div>
-
-<h3>
-Comunicazione
-</h3>
-
-<ul>
-
-<li>
-Social media
-</li>
-
-<li>
-Storytelling
-</li>
-
-<li>
-Content creation con AI
-</li>
-
-</ul>
-
+<section class="wrap">
+<h2>Competenze</h2>
+<div class="sk">
+<div><h3>Marketing</h3><ul><li>Digital marketing</li><li>Value proposition</li><li>Analisi di mercato e insights</li></ul></div>
+<div><h3>Comunicazione</h3><ul><li>Social media e strategia</li><li>Brand identity e tone of voice</li><li>Scrittura, reportage e comunicati</li></ul></div>
+<div><h3>Produzione</h3><ul><li>Fotografia e video editing</li><li>Eventi e partnership</li><li>Contenuti creati con l'AI</li></ul></div>
 </div>
-
-
-
-<div>
-
-<h3>
-Eventi e team
-</h3>
-
-<ul>
-
-<li>
-Organizzazione eventi
-</li>
-
-<li>
-Lavoro in team
-</li>
-
-<li>
-Spirito imprenditoriale
-</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
 </section>
 
-
-
-<!-- =========================
-     CONTATTI
-========================= -->
-
-<section style="border:0">
-
-<h2 class="reveal">
-
-<span>Parliamone</span>
-
-Contatti
-
-</h2>
-
-
-<div class="links reveal">
-
-<a href="mailto:gcarta227@gmail.com">
-gcarta227@gmail.com
-</a>
-
-<a href="tel:+393505319861">
-+39 350 531 9861
-</a>
-
-<a href="https://www.linkedin.com/in/giuliacartaa" target="_blank">
-LinkedIn
-</a>
-
+<section class="wrap contact" id="contatti">
+<h2>Contattami, collaboriamo</h2>
+<p class="sub">Cerco un'opportunità in una grande azienda, dove mettere a frutto marketing, comunicazione e creatività. Scriviamoci.</p>
+<a class="mail" href="mailto:gcarta227@gmail.com">gcarta227@gmail.com</a>
+<div class="row">
+<a href="https://www.linkedin.com/in/giuliacartaa">LinkedIn</a>
+<a href="tel:+393505319861">+39 350 531 9861</a>
 </div>
-
 </section>
+</main>
 
-
-
-<footer>
-© 2026 Giulia Carta
-</footer>
-
-
-</div>
-
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+<footer><div class="wrap">© 2026 Giulia Carta</div></footer>
 
 <script>
-
-var io = new IntersectionObserver(
-
-function(entries){
-
-entries.forEach(function(entry){
-
-if(entry.isIntersecting){
-
-entry.target.classList.add('in');
-
-io.unobserve(entry.target);
-
-}
-
-});
-
-},
-
-{
-threshold:.12
-}
-
-);
-
-
-document
-.querySelectorAll('.reveal')
-.forEach(function(el){
-
-io.observe(el);
-
-});
-
-
-/* Piccolo effetto dinamico sulle card */
-
-document
-.querySelectorAll('.card')
-.forEach(function(card){
-
-card.addEventListener('mousemove',function(e){
-
-var rect=card.getBoundingClientRect();
-
-var x=e.clientX-rect.left;
-var y=e.clientY-rect.top;
-
-var rotateY=(x/rect.width-.5)*3;
-var rotateX=(y/rect.height-.5)*-3;
-
-card.style.transform=
-"translateY(-8px) perspective(900px) rotateX("+rotateX+"deg) rotateY("+rotateY+"deg)";
-
-});
-
-card.addEventListener('mouseleave',function(){
-
-card.style.transform="";
-
-});
-
-});
-
+(function(){
+var sel='h2,.sub,.proj>div,details,.spot .big,.spot .txt,.ev>div,.sk>div,.contact .mail,.row';
+var els=document.querySelectorAll(sel);
+els.forEach(function(el){el.classList.add('rv');el.style.transitionDelay=([].indexOf.call(el.parentNode.children,el)%4)*.09+'s'});
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(list){list.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay=''},1500)}})},{threshold:.12});
+els.forEach(function(e){io.observe(e)});
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){var h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+')'},{passive:true});
+})();
 </script>
-
 </body>
 </html>
-```

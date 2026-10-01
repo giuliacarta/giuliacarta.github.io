@@ -204,6 +204,55 @@ summary{padding:34px 0;gap:18px}
 .thumb.mini{margin-top:0}
 @media(max-width:760px){section.wrap{padding-top:100px}#chi{padding-top:84px}#progetti{margin-top:64px}.more{grid-template-columns:1fr;gap:26px;padding:0 0 42px}#contatti.wrap{padding-bottom:100px}.car{transform:skewX(-8deg) scale(.85);transform-origin:left bottom}.plane{font-size:3.2rem}}
 </style>
+<style>
+/* Tesi di laurea: libro sfogliabile */
+.tesi{padding-top:76px;border-top:1px solid var(--line)}
+.tesi-head{margin-bottom:60px}
+.tesi-head h3{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.12;letter-spacing:-.02em}
+.tesi-head p{color:var(--mute);margin-top:14px;max-width:560px;line-height:1.75}
+.tesi-libro{padding:6px 0 30px}
+.libro{position:relative;display:block;width:min(100%,880px,max(300px,(100vh - 190px)*1.413));margin:0 auto;text-decoration:none;color:inherit;perspective:1800px;isolation:isolate;-webkit-tap-highlight-color:transparent;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.libro::before{content:"";position:absolute;inset:-14% -8%;z-index:-1;background:radial-gradient(closest-side,color-mix(in srgb,var(--rosso) 20%,transparent),transparent);pointer-events:none}
+.libro.fuori{opacity:0;transform:translateY(14px) scale(.97)}
+.libro-in{position:relative;aspect-ratio:1440/1019;perspective:2200px;transform:translateX(var(--tx,0%)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .7s cubic-bezier(.3,.7,.2,1)}
+.libro-in.chiuso{--tx:-25%}
+.pg,.faccia{position:absolute;top:0;width:50%;height:100%;overflow:hidden;background:#fff}
+.pg{box-shadow:0 26px 50px -22px rgba(20,14,8,.55)}
+.pg-sx{left:0;border-radius:3px 0 0 3px}.pg-dx{left:50%;border-radius:0 3px 3px 0}
+.libro .vuoto{visibility:hidden}
+.pg img,.faccia img{display:block;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none}
+.pg::before,.pg::after,.faccia::before,.faccia::after{content:"";position:absolute;inset:0;pointer-events:none}
+.pg-sx::before,.rt::before{background:linear-gradient(to left,rgba(0,0,0,.24),rgba(0,0,0,.07) 3%,transparent 13%)}
+.pg-dx::before,.fr::before{background:linear-gradient(to right,rgba(0,0,0,.24),rgba(0,0,0,.07) 3%,transparent 13%)}
+.pg::after,.faccia::after{opacity:var(--o,0)}
+.pg-sx::after{background:linear-gradient(to left,rgba(0,0,0,.55),transparent 75%)}
+.pg-dx::after{background:linear-gradient(to right,rgba(0,0,0,.55),transparent 75%)}
+.fr::after{background:linear-gradient(to left,rgba(0,0,0,.5),rgba(0,0,0,.18))}
+.rt::after{background:linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,.18))}
+.foglio{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:0 50%;transform-style:preserve-3d;visibility:hidden;will-change:transform}
+.foglio.on{visibility:visible}
+.foglio .faccia{left:0;width:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.fr{border-radius:0 3px 3px 0}.rt{transform:rotateY(180deg);border-radius:3px 0 0 3px}
+.bordo{position:absolute;top:.7%;bottom:.7%;width:calc(var(--n,0)*1.2%);background:repeating-linear-gradient(90deg,#fbf8f2 0 1px,#d6cfc4 1px 2px);box-shadow:0 26px 50px -22px rgba(20,14,8,.55);transition:width 1s ease}
+.bd-sx{right:100%;border-radius:4px 0 0 4px}.bd-dx{left:100%;border-radius:0 4px 4px 0}
+.ombra{position:absolute;left:4%;right:4%;bottom:-6%;height:10%;z-index:-1;background:radial-gradient(closest-side,rgba(0,0,0,.42),transparent);filter:blur(6px);transition:left .7s cubic-bezier(.3,.7,.2,1)}
+.chiuso .ombra{left:54%}
+.apri{position:absolute;left:50%;bottom:-20px;z-index:2;transform:translate(-50%,8px);padding:9px 18px;border-radius:999px;background:var(--rosso);color:var(--ink);font-weight:600;font-size:.85rem;white-space:nowrap;opacity:0;pointer-events:none;box-shadow:0 12px 26px -10px rgba(0,0,0,.45);transition:opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.libro:hover .apri,.libro:focus-visible .apri{opacity:1;transform:translate(-50%,0)}
+@media(hover:none){.apri{opacity:1;transform:translate(-50%,0);bottom:-52px}.tesi-libro{padding-bottom:62px}}
+.tesi-info{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);margin-top:76px;padding-top:56px;border-top:1px solid var(--line)}
+.tesi-info h3{font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.14;letter-spacing:-.02em}
+.tesi-info h3 span{color:var(--rosso)}
+.tesi-info p{color:var(--mute);margin-bottom:18px;max-width:62ch;line-height:1.85}
+.tesi-info .kw{margin:28px 0 36px}
+.tesi-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.tesi-cta span{color:var(--mute);font-size:.85rem}
+.js .t-rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.js .t-rv.vis{opacity:1;transform:none}
+.tesi-info .t-rv:nth-child(2){transition-delay:.12s}
+@media(max-width:760px){.tesi{padding-top:52px}.tesi-head{margin-bottom:44px}.tesi-info{grid-template-columns:1fr;gap:18px;margin-top:60px;padding-top:40px}.tesi-info .kw{margin:22px 0 30px}}
+@media(prefers-reduced-motion:reduce){.js .t-rv{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 <div class="bar" id="bar"></div><div class="glow" id="glow"></div>
@@ -302,6 +351,27 @@ summary{padding:34px 0;gap:18px}
 <div><div class="when">Fiera dell'auto d'epoca, Roma</div><h3>Millennium Expo</h3><div class="thumb"><svg class="ill" viewBox="0 0 160 100" aria-hidden="true"><path class="a" d="M32 52h96l-8-18H40Z"/><path class="c" d="M56 34l-4 18M72 34l-2 18M88 34l2 18M104 34l4 18" style="stroke-width:3"/><rect class="c" x="38" y="52" width="84" height="30"/><rect class="a" x="72" y="62" width="16" height="20" style="opacity:.6"/><path class="a" d="M140 84V28l16 7-16 8"/></svg></div></div>
 <div><p>Con il nostro stand siamo stati presenti alla fiera per presentare al pubblico i progetti e gli eventi di @vintaagecar.</p><p class="kw">Fiera, stand, networking</p></div>
 </article>
+<div class="tesi" id="tesi">
+<div class="tesi-head t-rv"><div class="when">Tesi di laurea magistrale</div><h3>Da @vintaagecar è nata la mia tesi</h3><p>Il progetto è diventato il caso studio della mia laurea magistrale. Tocca il libro per leggerla tutta.</p></div>
+<div class="tesi-libro t-rv">
+<a class="libro" id="libro" href="tesi/tesi-giulia-carta.pdf" target="_blank" rel="noopener" aria-label="Apri la tesi di laurea in PDF in una nuova scheda">
+<div class="libro-in chiuso" id="libroIn">
+<div class="ombra"></div><div class="bordo bd-sx"></div><div class="bordo bd-dx"></div>
+<div class="pg pg-sx vuoto"><img alt=""></div>
+<div class="pg pg-dx"><img alt="" src="tesi/pagine/001.webp" loading="lazy"></div>
+<div class="foglio"><div class="faccia fr"><img alt=""></div><div class="faccia rt"><img alt=""></div></div>
+</div>
+<span class="apri">Apri il PDF ↗</span>
+</a>
+</div>
+<div class="tesi-info">
+<div class="t-rv"><div class="when">Sapienza Università di Roma · A.A. 2025/2026</div><h3>Vintage culture on Instagram, tra storytelling visuale, community building e identità digitale. Il caso <span>@vintaagecar</span></h3></div>
+<div class="t-rv"><p>Un caso studio su come un'identità visiva costruita su Instagram possa trasformare una passione in un brand digitale riconosciuto: dallo storytelling del feed alla community, fino agli eventi dal vivo come Meet &amp; Breakfast.</p>
+<p>Laurea magistrale LM-19 in Media, comunicazione digitale e giornalismo, Dipartimento di Comunicazione e Ricerca Sociale.</p>
+<p class="kw">Storytelling visuale, community building, identità digitale, Instagram</p>
+<div class="tesi-cta"><a class="btn" href="tesi/tesi-giulia-carta.pdf" target="_blank" rel="noopener">Leggi la tesi</a><span>PDF · 15 MB</span></div></div>
+</div>
+</div>
 </div></div>
 
 <section class="wrap" id="competenze">
@@ -343,6 +413,55 @@ if(fine){var g=d.getElementById('glow');
 addEventListener('mousemove',function(e){g.style.opacity=1;g.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)'});
 $('.thumb').forEach(function(t){t.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(700px) rotateY('+x*12+'deg) rotateX('+-y*12+'deg) scale(1.02)'});t.addEventListener('mouseleave',function(){t.style.transform=''})});
 $('.btn').forEach(function(b){b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.18+'px,'+(e.clientY-r.top-r.height/2)*.28+'px)'});b.addEventListener('mouseleave',function(){b.style.transform=''})})}
+})();
+</script>
+<script>
+/* Tesi di laurea: sfoglio automatico */
+(function(){
+var d=document,L=d.getElementById('libro');if(!L)return;
+var N=111,DUR=1000,PAUSA=1100,
+In=d.getElementById('libroIn'),q=function(s){return L.querySelector(s)},
+pS=q('.pg-sx'),pD=q('.pg-dx'),F=q('.foglio'),fF=q('.fr'),fR=q('.rt'),bS=q('.bd-sx'),bD=q('.bd-dx'),
+iS=pS.querySelector('img'),iD=pD.querySelector('img'),iF=fF.querySelector('img'),iR=fR.querySelector('img'),
+cache={},s=0,vis=false,sopra=false,attesa=false,avviato=false,timer=null,
+calma=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function url(i){return'tesi/pagine/'+('00'+(i+1)).slice(-3)+'.webp'}
+function carica(i){if(i<0||i>=N)return Promise.resolve();if(!cache[i]){var im=new Image();im.src=url(i);cache[i]=(im.decode?im.decode():new Promise(function(r){im.onload=im.onerror=r})).catch(function(){})}return cache[i]}
+function metti(img,box,i){if(i<0||i>=N){box.classList.add('vuoto');return Promise.resolve()}
+if(img.getAttribute('src')!==url(i))img.src=url(i);box.classList.remove('vuoto');return img.decode?img.decode().catch(function(){}):Promise.resolve()}
+function spessori(k){bS.style.setProperty('--n',(2*k/N).toFixed(3));bD.style.setProperty('--n',((N-2*k)/N).toFixed(3))}
+function stato(){In.classList.toggle('chiuso',s===0);spessori(s);return Promise.all([metti(iS,pS,s?2*s-1:-1),metti(iD,pD,2*s)])}
+function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+function ombre(a){var k=Math.sin(a*Math.PI/180);
+fF.style.setProperty('--o',a<90?(a/90*.55).toFixed(3):0);fR.style.setProperty('--o',a>90?((180-a)/90*.55).toFixed(3):0);
+pD.style.setProperty('--o',a<90?(k*.6).toFixed(3):0);pS.style.setProperty('--o',a>90?(k*.6).toFixed(3):0)}
+function gira(fine){var a=2*s;
+Promise.all([carica(a),carica(a+1),carica(a+2)]).then(function(){return Promise.all([metti(iF,fF,a),metti(iR,fR,a+1)])}).then(function(){
+F.style.transform='rotateY(0deg)';ombre(0);F.classList.add('on');
+if(s===0)In.classList.remove('chiuso');spessori(s+1);
+for(var j=a+3;j<a+8;j++)carica(j);
+return metti(iD,pD,a+2)}).then(function(){var t0=null;
+requestAnimationFrame(function step(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/DUR),g=180*ease(p);
+F.style.transform='rotateY('+(-g)+'deg)';ombre(g);
+if(p<1)return requestAnimationFrame(step);
+s++;metti(iS,pS,2*s-1).then(function(){F.classList.remove('on');ombre(0);fine()})})})}
+function puo(){return vis&&!sopra&&!d.hidden}
+function programma(ms){clearTimeout(timer);timer=setTimeout(prossimo,ms)}
+function prossimo(){timer=null;if(!puo()){attesa=true;return}attesa=false;
+if(2*s+1<N)gira(function(){programma(2*s+1<N?PAUSA:3200)});
+else{L.classList.add('fuori');setTimeout(function(){s=0;stato().then(function(){setTimeout(function(){L.classList.remove('fuori');programma(2400)},650)})},750)}}
+function riprendi(){if(attesa&&puo()){attesa=false;programma(500)}}
+stato();
+var rv=[].slice.call(d.querySelectorAll('#tesi .t-rv'));
+function avvia(){if(avviato)return;avviato=true;if(calma)return;for(var j=0;j<5;j++)carica(j);programma(1800)}
+if('IntersectionObserver'in window){
+var io=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target)}})},{threshold:.12});rv.forEach(function(e){io.observe(e)});
+new IntersectionObserver(function(l){vis=l[l.length-1].isIntersecting;if(vis){avvia();riprendi()}},{threshold:.3}).observe(L)}
+else{rv.forEach(function(e){e.classList.add('vis')});vis=true;avvia()}
+d.addEventListener('visibilitychange',riprendi);
+L.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')sopra=true});
+L.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;sopra=false;In.style.removeProperty('--rx');In.style.removeProperty('--ry');riprendi()});
+if(!calma)L.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=L.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;In.style.setProperty('--ry',(x*7).toFixed(2)+'deg');In.style.setProperty('--rx',(-y*7).toFixed(2)+'deg')});
 })();
 </script>
 </body>
